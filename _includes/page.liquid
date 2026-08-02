@@ -11,10 +11,11 @@ title: Page template
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <script data-goatcounter="https://studiokria.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script src="/js/main.js" type="module"></script>
 </head>
 <body>
   <div class="wrap">
-
     <header>
       <a href="/" class="logo-link">
         {% if wordmark == 'solid' %}
@@ -61,7 +62,6 @@ title: Page template
 
     {{ content }}
 
-
     <hr class="divider" />
 
     <footer>
@@ -94,37 +94,6 @@ title: Page template
         <a href="#">YouTube</a>
       </div>
     </footer>
-
   </div>
-
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const navOverlay = document.getElementById('navOverlay');
-    const navClose = document.getElementById('navClose');
-    const navLinks = navOverlay.querySelectorAll('a');
-
-    function openNav(){
-      navOverlay.classList.add('is-open');
-      menuToggle.classList.add('is-open');
-      menuToggle.setAttribute('aria-expanded', 'true');
-      document.body.classList.add('nav-locked');
-    }
-    function closeNav(){
-      navOverlay.classList.remove('is-open');
-      menuToggle.classList.remove('is-open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('nav-locked');
-    }
-
-    menuToggle.addEventListener('click', () => {
-      navOverlay.classList.contains('is-open') ? closeNav() : openNav();
-    });
-    navClose.addEventListener('click', closeNav);
-    navLinks.forEach(a => a.addEventListener('click', closeNav));
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeNav();
-    });
-  </script>
-  <script data-goatcounter="https://studiokria.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
