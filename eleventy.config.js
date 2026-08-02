@@ -45,7 +45,7 @@ export default function (eleventyConfig) {
 
   // Reload i18next resources when site updates
   eleventyConfig.on("eleventy.before", () => {
-    i18next.reloadResources();
+    i18next.reloadResources(locales);
   });
 
   eleventyConfig.addFilter("i18n", function (msg, ...args) {
