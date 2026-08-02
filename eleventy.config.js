@@ -43,6 +43,11 @@ export default function (eleventyConfig) {
     preload: locales,
   });
 
+  // Reload i18next resources when site updates
+  eleventyConfig.on("eleventy.before", () => {
+    i18next.reloadResources();
+  });
+
   eleventyConfig.addFilter("i18n", function (msg, ...args) {
     const t = i18next.getFixedT(this.page.lang ?? defaultLanguage);
 
