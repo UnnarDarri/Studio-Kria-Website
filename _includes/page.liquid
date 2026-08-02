@@ -6,7 +6,7 @@ title: Page template
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ title }} | Studio Kría</title>
+  <title>{{ title | i18n }} | Studio Kría</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@ title: Page template
 <body>
   <div class="wrap">
     <header>
-      <a href="/" class="logo-link">
+      <a href="{{ '/' | locale_url }}" class="logo-link">
         {% if wordmark == 'solid' %}
         <h1 class="wordmark">
           <svg viewBox="0 0 1180 230" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studio Kría">
@@ -43,21 +43,25 @@ title: Page template
         {% endif %}
       </a>
       <img class="bird bird--intro" src="/images/bird-orange.svg" alt="Kría bird logo">
-      <button class="menu-toggle" id="menuToggle" aria-label="Opna valmynd" aria-expanded="false">
+      <button class="menu-toggle" id="menuToggle" aria-label="{{ 'open_menu_text' | i18n }}" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </header>
 
     <nav class="nav-overlay" id="navOverlay">
       <img class="bird-bg" src="/images/bird-orange.svg" alt="">
-      <button class="nav-close" id="navClose" aria-label="Loka valmynd">
+      <button class="nav-close" id="navClose" aria-label="{{ 'close_menu_text' | i18n }}">
         <span></span><span></span>
       </button>
-      <a href="/">Forsíða</a>
-      <a href="/verkefni">Verkefni</a>
-      <a href="/starfsemi">Starfsemi</a>
-      <a href="/um-okkur">Um okkur</a>
-      <a href="/hafa-samband">Hafa samband</a>
+      {%- for link in navigation -%}
+      <a href="{{ link.url | locale_url }}">{{ link.title | i18n }}</a>
+      {%- endfor -%}
+
+      {% assign links = page.url | locale_links %}
+      {%- for link in links %}
+      {%- unless forloop.first %},{% endunless %}
+      <a href="{{link.url}}" lang="{{link.lang}}" hreflang="{{link.lang}}">{{link.label}}</a>
+      {%- endfor -%}
     </nav>
 
     {{ content }}
@@ -65,32 +69,33 @@ title: Page template
     <hr class="divider" />
 
     <footer>
-      <a href="/" class="foot-brand">
+      <a href="{{ '/' | locale_url }}" class="foot-brand">
         <img class="bird-mini" src="/images/bird-cream.svg" alt="Kría bird logo">
         <img class="wordmark-mini" src="/images/wordmark.svg" alt="Studio Kría">
       </a>
 
       <div class="foot-col">
-        KT 0101072020<br>
+        kt. 0101072020<br>
         VSK 23489456
       </div>
 
       <div class="foot-col">
-        <a href="/verkefni">Verkefni</a><br>
-        <a href="/starfsemi">Starfsemi</a><br>
-        <a href="/um-okkur">Um okkur</a><br>
-        <a href="/hafa-samband">Hafa samband</a>
+        {%- for link in navigation -%}
+          {% if link.showInFooter %}
+            <a href="{{ link.url | locale_url }}">{{ link.title | i18n }}</a>
+          {% endif %}
+        {%- endfor -%}
       </div>
 
       <div class="foot-col">
-        Email<br>
-        Phone<br>
-        Phone
+        <a href="#">Email</a>
+        <a href="#">Phone</a>
+        <a href="#">Phone</a>
       </div>
 
       <div class="foot-col">
-        <a href="#">Instagram</a><br>
-        <a href="#">TikTok</a><br>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
         <a href="#">YouTube</a>
       </div>
     </footer>

@@ -753,6 +753,7 @@ footer {
 
 .foot-col a {
   color: inherit;
+  display: block;
   text-decoration: none;
 }
 

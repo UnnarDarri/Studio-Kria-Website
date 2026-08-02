@@ -1,11 +1,11 @@
 ---
 layout: page.liquid
-title: Forsíða
+title: front_page
 wordmark: solid
 ---
 
 <div class="content cards">  
-  <a href="/verkefni" class="card-link">
+  <a href="{{ '/verkefni' | locale_url }}" class="card-link">
     <div class="card card--olive">
       <div class="photo-frame"><img src="/images/portrait.jpg" alt="Portrait"></div>
       <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
@@ -13,7 +13,7 @@ wordmark: solid
     </div>
   </a>
 
-  <a href="/starfsemi" class="card-link">
+  <a href="{{ '/starfsemi' | locale_url }}" class="card-link">
     <div class="card card--teal">
       <h3 class="head">Það sem <span class="hl">við</span> getum <span class="hl">gert</span> fyrir þig</h3>
       <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
@@ -21,7 +21,7 @@ wordmark: solid
     </div>
   </a>
 
-  <a href="/um-okkur" class="card-link">
+  <a href="{{ '/um-okkur' | locale_url }}" class="card-link">
     <div class="card card--plum">
       <div class="photo-frame"><img src="/images/portrait.jpg" alt="Portrait"></div>
       <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmo</p>
