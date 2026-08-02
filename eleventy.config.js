@@ -20,9 +20,10 @@ export default function (eleventyConfig) {
     errorMode: "allow-fallback",
   });
 
+  // Read available locales from filesystem
   const locales = fs.readdirSync(path.join(__dirname, 'locales')).filter((fileName) => {
-    const joinedPath = path.join(path.join(__dirname, 'locales'), fileName)
-    const isDirectory = fs.lstatSync(joinedPath).isDirectory()
+    const joinedPath = path.join(__dirname, 'locales', fileName);
+    const isDirectory = fs.lstatSync(joinedPath).isDirectory();
     return isDirectory;
   });
 
@@ -77,6 +78,12 @@ export default function (eleventyConfig) {
   // Using gitignore breaks building the site due to it ignoring the generated locale-specific layouts
   eleventyConfig.setUseGitIgnore(false);
 
+  // Copy the default language's index.html to root so that the bare site URL works
+  eleventyConfig.on("eleventy.after", () => {
+    fs.cpSync(path.join(__dirname, eleventyConfig.directories.output, defaultLanguage, "/index.html"),
+              path.join(__dirname, eleventyConfig.directories.output, "/index.html"));
+  });
+
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     outputDir: ".cache/@11ty/img/",
     urlPath: "/img/built",
@@ -109,14 +116,9 @@ export default function (eleventyConfig) {
   });
   
   eleventyConfig.on("eleventy.after", () => {
-    fs.cpSync(".cache/@11ty/img/", path.join(eleventyConfig.directories.output, "/img/built/"), {
+    fs.cpSync(".cache/@11ty/img/", path.join(__dirname, eleventyConfig.directories.output, "/img/built/"), {
       recursive: true,
     });
-  });
-
-  eleventyConfig.on("eleventy.after", () => {
-    // Copy the default language's index.html to root so that the bare site URL works
-    fs.cpSync(path.join(eleventyConfig.directories.output, defaultLanguage, "/index.html"), path.join(eleventyConfig.directories.output, "/index.html"));
   });
 
   eleventyConfig.addPassthroughCopy("static");
