@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Samband — Studio Kría</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <a href="index.html" class="logo-link">
+        <h1 class="wordmark wordmark--ghost">
+          <svg viewBox="0 0 1180 230" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studio Kría">
+            <defs>
+              <filter id="ghostOutline" x="-10%" y="-60%" width="120%" height="220%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="3" result="dilated"/>
+                <feComposite in="dilated" in2="SourceAlpha" operator="out" result="ring"/>
+                <feGaussianBlur in="ring" stdDeviation="0.9" result="softRing"/>
+                <feFlood flood-color="#f3ede1" flood-opacity="0.32" result="color"/>
+                <feComposite in="color" in2="softRing" operator="in"/>
+              </filter>
+            </defs>
+            <text x="0" y="190" font-family="Inter, sans-serif" font-weight="900" font-size="210" textLength="1180" lengthAdjust="spacingAndGlyphs" fill="#000" filter="url(#ghostOutline)">Studio Kría</text>
+            <text x="0" y="190" font-family="Inter, sans-serif" font-weight="900" font-size="210" textLength="1180" lengthAdjust="spacingAndGlyphs" fill="#f3ede1" class="wordmark-fill-layer">Studio Kría</text>
+          </svg>
+        </h1>
+      </a>
+      <img class="bird" src="images/bird-orange.svg" alt="Kría bird logo">
+      <button class="menu-toggle" id="menuToggle" aria-label="Opna valmynd" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <nav class="nav-overlay" id="navOverlay">
+      <img class="bird-bg" src="images/bird-orange.svg" alt="">
+      <button class="nav-close" id="navClose" aria-label="Loka valmynd">
+        <span></span><span></span>
+      </button>
+      <a href="index.html">Forsíða</a>
+      <a href="verkefni.html">Verkefni</a>
+      <a href="starfsemi.html">Starfsemi</a>
+      <a href="um-okkur.html">Um okkur</a>
+      <a href="samband.html">Samband</a>
+    </nav>
+
+    <div class="content">
+
+      <span class="pill">Vertu í bandi</span>
+
+      <div class="contact-page-layout">
+
+        <div class="contact-form-col">
+          <p style="max-width:520px; font-weight:300; color:var(--cream); opacity:0.85; line-height:1.6; margin:0 0 28px;">
+            Getið þið hjálpað mér með auglýsingu? Sendu okkur línu og við höfum samband sem fyrst.
+          </p>
+
+          <form class="contact-form" id="contactForm">
+            <input type="hidden" name="access_key" value="YOUR-WEB3FORMS-ACCESS-KEY">
+            <input type="hidden" name="subject" value="Ný fyrirspurn af studiokria.is">
+            <input type="text" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="form-field">
+              <label for="name">Nafn</label>
+              <input type="text" id="name" name="name" placeholder="Fullt nafn" required>
+            </div>
+            <div class="form-field">
+              <label for="email">Netfang</label>
+              <input type="email" id="email" name="email" placeholder="netfang@example.com" required>
+            </div>
+            <div class="form-field">
+              <label for="message">Skilaboð</label>
+              <textarea id="message" name="message" placeholder="Segðu okkur frá verkefninu þínu..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="formSubmitBtn">Senda skilaboð</button>
+            <p class="form-status" id="formStatus" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="contact-info-col">
+          <div class="contact-info-block">
+            <h3>Hafðu samband</h3>
+            <div class="info-row">
+              <span>Netfang</span>
+              <a href="mailto:hello@studiokria.is">hello@studiokria.is</a>
+            </div>
+            <div class="info-row">
+              <span>Sími</span>
+              <a href="tel:+3541234567">123-4567</a>
+            </div>
+            <div class="info-row">
+              <span>Kennitala</span>
+              <p>0101072020</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr class="divider" />
+
+    <footer>
+      <a href="index.html" class="foot-brand">
+        <img class="bird-mini" src="images/bird-cream.svg" alt="Kría bird logo">
+        <img class="wordmark-mini" src="images/wordmark.svg" alt="Studio Kría">
+      </a>
+
+      <div class="foot-col">
+        KT 0101072020<br>
+        VSK 23489456
+      </div>
+
+      <div class="foot-col">
+        <a href="verkefni.html">Verkefni</a><br>
+        <a href="starfsemi.html">Starfsemi</a><br>
+        <a href="um-okkur.html">um okkur</a><br>
+        <a href="samband.html">samband</a>
+      </div>
+
+      <div class="foot-col">
+        Email<br>
+        Phone<br>
+        Phone
+      </div>
+
+      <div class="foot-col">
+        <a href="#">Instagram</a><br>
+        <a href="#">TikTok</a><br>
+        <a href="#">YouTube</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const navClose = document.getElementById('navClose');
+    const navLinks = navOverlay.querySelectorAll('a');
+
+    function openNav(){
+      navOverlay.classList.add('is-open');
+      menuToggle.classList.add('is-open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('nav-locked');
+    }
+    function closeNav(){
+      navOverlay.classList.remove('is-open');
+      menuToggle.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-locked');
+    }
+
+    menuToggle.addEventListener('click', () => {
+      navOverlay.classList.contains('is-open') ? closeNav() : openNav();
+    });
+    navClose.addEventListener('click', closeNav);
+    navLinks.forEach(a => a.addEventListener('click', closeNav));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const formSubmitBtn = document.getElementById('formSubmitBtn');
+
+    contactForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      formSubmitBtn.disabled = true;
+      formSubmitBtn.textContent = 'Sendi...';
+      formStatus.textContent = '';
+      formStatus.className = 'form-status';
+
+      const formData = new FormData(contactForm);
+      try{
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+        const result = await res.json();
+        if (result.success){
+          formStatus.textContent = 'Takk fyrir! Skilaboðin þín voru send.';
+          formStatus.classList.add('form-status--ok');
+          contactForm.reset();
+        } else {
+          throw new Error(result.message || 'Villa kom upp');
+        }
+      } catch(err){
+        formStatus.textContent = 'Eitthvað fór úrskeiðis. Prófaðu aftur eða sendu okkur línu beint á hello@studiokria.is.';
+        formStatus.classList.add('form-status--error');
+      } finally {
+        formSubmitBtn.disabled = false;
+        formSubmitBtn.textContent = 'Senda skilaboð';
+      }
+    });
+  </script>
+  <script data-goatcounter="https://studiokria.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

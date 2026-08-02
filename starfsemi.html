@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Starfsemi — Studio Kría</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <a href="index.html" class="logo-link">
+        <h1 class="wordmark wordmark--ghost">
+          <svg viewBox="0 0 1180 230" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Studio Kría">
+            <defs>
+              <filter id="ghostOutline" x="-10%" y="-60%" width="120%" height="220%">
+                <feMorphology in="SourceAlpha" operator="dilate" radius="3" result="dilated"/>
+                <feComposite in="dilated" in2="SourceAlpha" operator="out" result="ring"/>
+                <feGaussianBlur in="ring" stdDeviation="0.9" result="softRing"/>
+                <feFlood flood-color="#f3ede1" flood-opacity="0.32" result="color"/>
+                <feComposite in="color" in2="softRing" operator="in"/>
+              </filter>
+            </defs>
+            <text x="0" y="190" font-family="Inter, sans-serif" font-weight="900" font-size="210" textLength="1180" lengthAdjust="spacingAndGlyphs" fill="#000" filter="url(#ghostOutline)">Studio Kría</text>
+            <text x="0" y="190" font-family="Inter, sans-serif" font-weight="900" font-size="210" textLength="1180" lengthAdjust="spacingAndGlyphs" fill="#f3ede1" class="wordmark-fill-layer">Studio Kría</text>
+          </svg>
+        </h1>
+      </a>
+      <img class="bird" src="images/bird-orange.svg" alt="Kría bird logo">
+      <button class="menu-toggle" id="menuToggle" aria-label="Opna valmynd" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <nav class="nav-overlay" id="navOverlay">
+      <img class="bird-bg" src="images/bird-orange.svg" alt="">
+      <button class="nav-close" id="navClose" aria-label="Loka valmynd">
+        <span></span><span></span>
+      </button>
+      <a href="index.html">Forsíða</a>
+      <a href="verkefni.html">Verkefni</a>
+      <a href="starfsemi.html">Starfsemi</a>
+      <a href="um-okkur.html">Um okkur</a>
+      <a href="samband.html">Samband</a>
+    </nav>
+
+    <div class="content">
+
+      <span class="pill pill--navy">Það sem við getum gert fyrir þig</span>
+
+      <div class="list-layout">
+        <div class="list-cards-col">
+
+          <a href="#" class="list-card-link">
+            <div class="list-card list-card--olive">
+              <div class="text">
+                <h3>Við getum aðstoðað við mannskap á setti</h3>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+              </div>
+              <div class="photo"><img src="images/landscape-crew.jpg" alt="Mannskapur á setti"></div>
+            </div>
+          </a>
+
+          <a href="#" class="list-card-link">
+            <div class="list-card list-card--plum">
+              <div class="text">
+                <h3>Við getum frammleitt</h3>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+              </div>
+              <div class="photo"><img src="images/landscape-gear.jpg" alt="Framleiðsla"></div>
+            </div>
+          </a>
+
+        </div>
+
+        <a href="samband.html" class="contact-link">
+          <div class="contact-block">
+            <div class="bubble">
+              <h3>Vertu í bandi</h3>
+              <p>Getið þið hjálpað mér með auglýsingu?</p>
+            </div>
+            <div class="small-photo"><img src="images/small-photo.jpg" alt="Photo"></div>
+          </div>
+        </a>
+      </div>
+
+    </div>
+
+    <hr class="divider" />
+
+    <footer>
+      <a href="index.html" class="foot-brand">
+        <img class="bird-mini" src="images/bird-cream.svg" alt="Kría bird logo">
+        <img class="wordmark-mini" src="images/wordmark.svg" alt="Studio Kría">
+      </a>
+
+      <div class="foot-col">
+        KT 0101072020<br>
+        VSK 23489456
+      </div>
+
+      <div class="foot-col">
+        <a href="verkefni.html">Verkefni</a><br>
+        <a href="starfsemi.html">Starfsemi</a><br>
+        <a href="um-okkur.html">um okkur</a><br>
+        <a href="samband.html">samband</a>
+      </div>
+
+      <div class="foot-col">
+        Email<br>
+        Phone<br>
+        Phone
+      </div>
+
+      <div class="foot-col">
+        <a href="#">Instagram</a><br>
+        <a href="#">TikTok</a><br>
+        <a href="#">YouTube</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const navClose = document.getElementById('navClose');
+    const navLinks = navOverlay.querySelectorAll('a');
+
+    function openNav(){
+      navOverlay.classList.add('is-open');
+      menuToggle.classList.add('is-open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('nav-locked');
+    }
+    function closeNav(){
+      navOverlay.classList.remove('is-open');
+      menuToggle.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-locked');
+    }
+
+    menuToggle.addEventListener('click', () => {
+      navOverlay.classList.contains('is-open') ? closeNav() : openNav();
+    });
+    navClose.addEventListener('click', closeNav);
+    navLinks.forEach(a => a.addEventListener('click', closeNav));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+  </script>
+  <script data-goatcounter="https://studiokria.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
