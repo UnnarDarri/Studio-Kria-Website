@@ -48,5 +48,5 @@ export default function (eleventyConfig) {
 }
 
 export const config = {
-  pathPrefix: "",
+  pathPrefix: "/Studio-Kria-Website/",
 }
