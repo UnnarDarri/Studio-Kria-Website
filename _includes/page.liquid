@@ -11,6 +11,12 @@ title: Page template
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="canonical" href="{{ absoluteSiteUrl }}{{ page.url | htmlBaseUrl }}">
+  <link rel="alternate" hreflang="{{lang}}" href="{{page.url}}">
+  {% assign links = page.url | locale_links %}
+  {%- for link in links %}
+    <link rel="alternate" hreflang="{{link.lang}}" href="{{ absoluteSiteUrl }}{{ link.url }}">
+  {%- endfor -%}
   <script data-goatcounter="https://studiokria.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script src="/js/main.js" type="module"></script>
 </head>

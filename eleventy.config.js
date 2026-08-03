@@ -129,6 +129,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("static");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
+  
+  // Used for canonical and hreflang links
+  eleventyConfig.addGlobalData("absoluteSiteUrl", "https://www.studiokria.is");
 }
 
 export const config = {
