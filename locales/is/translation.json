@@ -7,5 +7,16 @@
   "open_menu_text": "Opna valmynd",
   "close_menu_text": "Loka valmynd",
   "contact_bubble_header": "Vertu í bandi",
-  "contact_bubble_text": "Getið þið hjálpað mér með auglýsingu?"
+  "contact_bubble_text": "Hvernig getum við hjálpað þér?",
+  "contact_form_description": "Við viljum aðstoða þig við að skapa þína sýn. Við getum bæði frammleitt og fyllt inn í allskyns hlutverk á setti. Sendu okkur línu og við höfum samband sem fyrst.",
+  "name_label": "Nafn",
+  "email_label": "Netfang",
+  "message_label": "Skilaboð",
+  "send_message_label": "Senda skilaboð",
+  "contact_name_placeholder": "Fullt nafn",
+  "contact_email_placeholder": "netfang@example.org",
+  "contact_message_placeholder": "Segðu okkur frá verkefninu þínu...",
+  "phone_label": "Sími",
+  "kt_label": "Kennitala",
+  "contact_header": "Vertu í bandi"
 }
