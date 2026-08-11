@@ -7,5 +7,16 @@
   "open_menu_text": "Open menu",
   "close_menu_text": "Close menu",
   "contact_bubble_header": "Hit us up",
-  "contact_bubble_text": "Can you help me make a commercial?"
+  "contact_bubble_text": "How can we help you?",
+  "contact_form_description": "Við viljum aðstoða þig við að skapa þína sýn. Við getum bæði frammleitt og fyllt inn í allskyns hlutverk á setti. Sendu okkur línu og við höfum samband sem fyrst.",
+  "name_label": "Name",
+  "email_label": "Email",
+  "message_label": "Message",
+  "send_message_label": "Send message",
+  "contact_name_placeholder": "Full name",
+  "contact_email_placeholder": "email@example.org",
+  "contact_message_placeholder": "Tell us about your project...",
+  "phone_label": "Phone",
+  "kt_label": "Kennitala",
+  "contact_header": "Hit us up"
 }
