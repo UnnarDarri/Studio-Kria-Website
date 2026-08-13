@@ -97,7 +97,7 @@ export default function (eleventyConfig) {
     transformOnRequest: false,
     
     // Maximum image widths
-    widths: [4096, 2048],
+    widths: [4096, 2048, 1024, 512],
 
     htmlOptions: {
       imgAttributes: {
