@@ -1,58 +1,87 @@
 ---
 layout: page.liquid
-title: projects
+title: verkefni
 ---
 
 <div class="content">
-  <span class="pill">Verkefni</span>
-  
-  <div class="list-layout">
-    <div class="list-cards-col">
-  
-      <a href="#" class="list-card-link">
-        <div class="list-card list-card--olive">
-          <div class="text">
-            <h3>Hvað höfum við gert</h3>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-          </div>
-          <div class="photo"><img src="/images/verkefni-photo.jpg" alt="Verkefni"></div>
-        </div>
-      </a>
-  
-      <a href="#" class="list-card-link">
-        <div class="list-card list-card--plum">
-          <div class="text">
-            <h3>Hvað höfum við gert</h3>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-          </div>
-          <div class="photo"><img src="/images/verkefni-photo.jpg" alt="Verkefni"></div>
-        </div>
-      </a>
-  
-      <a href="#" class="list-card-link">
-        <div class="list-card list-card--teal">
-          <div class="text">
-            <h3>Hvað höfum við gert</h3>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-          </div>
-          <div class="photo"><img src="/images/verkefni-photo.jpg" alt="Verkefni"></div>
-        </div>
-      </a>
-  
-      <a href="#" class="list-card-link">
-        <div class="list-card list-card--maroon">
-          <div class="text">
-            <h3>Hvað höfum við gert</h3>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
-          </div>
-          <div class="photo"><img src="/images/verkefni-photo.jpg" alt="Verkefni"></div>
-        </div>
-      </a>
-  
-    </div>
-  
-  </div>
+  <span class="pill">{{ 'verkefni' | i18n }}</span>
 
-  {% include '_contact-link.liquid' %}
+  <div class="project-wrap">
+    <div class="project-list">
+
+      <div class="project-row project-row--first">
+        <a href="#" class="list-card-link">
+          <div class="list-card list-card--olive">
+            <div class="text">
+              <h3>Rólegur Gaur</h3>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+            </div>
+            <div class="photo"><img src="/images/verkefni-photo.jpg" alt="Rólegur Gaur"></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="#" class="mini-card mini-card--maroon">
+          <div class="mini-photo"><img src="/images/landscape-crew.jpg" alt="SOFIA - Litefun"></div>
+          <p class="mini-caption">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+          <p class="mini-title">SOFIA - Litefun</p>
+        </a>
+        <a href="#" class="list-card-link">
+          <div class="list-card list-card--teal">
+            <div class="text">
+              <h3>Án Leyfis</h3>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+            </div>
+            <div class="photo"><img src="/images/verkefni-photo.jpg" alt="Án Leyfis"></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="#" class="list-card-link">
+          <div class="list-card list-card--plum">
+            <div class="text">
+              <h3>Ertu góður, maður?</h3>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+            </div>
+            <div class="photo"><img src="/images/verkefni-photo.jpg" alt="Ertu góður, maður?"></div>
+          </div>
+        </a>
+        <a href="#" class="mini-card mini-card--olive">
+          <div class="mini-photo"><img src="/images/landscape-crew.jpg" alt="Djúpt inn í skóg auglýsing"></div>
+          <p class="mini-caption">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+          <p class="mini-title">Djúpt inn í skóg auglýsing</p>
+        </a>
+      </div>
+
+      <div class="project-row">
+        <a href="#" class="mini-card mini-card--teal">
+          <div class="mini-photo"><img src="/images/landscape-crew.jpg" alt="Raddir sem heyrast ekki"></div>
+          <p class="mini-caption">Lorem ipsum dolor sit amet, consetetur sadipscing elitr</p>
+          <p class="mini-title">Raddir sem heyrast ekki</p>
+        </a>
+        <a href="#" class="list-card-link">
+          <div class="list-card list-card--maroon">
+            <div class="text">
+              <h3>COULROPHOBIA</h3>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+            </div>
+            <div class="photo"><img src="/images/verkefni-photo.jpg" alt="Coulrophobia"></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="lorem-row">
+        <p>Lorem ipsum dolor sit amet, consetetur</p>
+        <p>Lorem ipsum dolor sit amet, consetetur</p>
+        <p>Lorem ipsum dolor sit amet, consetetur</p>
+        <p>Lorem ipsum dolor sit amet, consetetur</p>
+      </div>
+
+    </div>
+
+    {% include '_contact-link.liquid' %}
+  </div>
 
 </div>
