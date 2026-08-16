@@ -6,26 +6,32 @@ wordmark: solid
 
 <div class="content cards">  
   <a href="{{ '/verkefni' | locale_url }}" class="card-link">
-    <div class="card card--olive">
-      <div class="photo-frame"><img src="/images/burger-window.png" alt="Portrait"></div>
-      <p class="lorem">Við höfum fjölbreyttan vinnuferil. Smelltu til að sjá nokkur verk</p>
-      <h3>Hvað höfum við gert</h3>
+    <div class="card card--stack card--olive">
+      <div class="card-photo"><img src="/images/burger-window.png" alt="Portrait"></div>
+      <div class="card-text">
+        <p class="card-desc">{{ 'home_card1_desc' | i18n }}</p>
+        <h3 class="card-title">{{ 'home_card1_title' | i18n }}</h3>
+      </div>
     </div>
   </a>
 
   <a href="{{ '/starfsemi' | locale_url }}" class="card-link">
-    <div class="card card--teal">
-      <h3 class="head">Það sem <span class="hl">við</span> getum <span class="hl">gert</span> fyrir þig</h3>
-      <p class="lorem">Við viljum hjálpa þér að gera þína sýn að verkuleika</p>
-      <div class="photo-frame"><img src="/images/unnar-on-cam.png" alt="Portrait"></div>
+    <div class="card card--stack card--reverse card--teal">
+      <div class="card-photo"><img src="/images/unnar-on-cam.png" alt="Portrait"></div>
+      <div class="card-text">
+        <h3 class="card-title">{{ 'home_card2_title' | i18n }}</h3>
+        <p class="card-desc">{{ 'home_card2_desc' | i18n }}</p>
+      </div>
     </div>
   </a>
 
   <a href="{{ '/um-okkur' | locale_url }}" class="card-link">
-    <div class="card card--plum">
-      <div class="photo-frame"><img src="/images/hopmynd.png" alt="Portrait"></div>
-      <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmo</p>
-      <h3>Allt um okkur</h3>
+    <div class="card card--stack card--plum card--align-right">
+      <div class="card-photo"><img src="/images/hopmynd.png" alt="Portrait"></div>
+      <div class="card-text">
+        <p class="card-desc">{{ 'home_card3_desc' | i18n }}</p>
+        <h3 class="card-title">{{ 'home_card3_title' | i18n }}</h3>
+      </div>
     </div>
   </a>
 

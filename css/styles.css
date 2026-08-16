@@ -365,51 +365,31 @@ body.nav-locked {
   object-fit: cover;
 }
 
-/* ---------- Home page cards ---------- */
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: start;
-  gap: 64px 2vw;
-  margin-bottom: 80px;
-}
-
-.card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  transition: transform .28s ease;
-  transform-origin: center;
-}
-
-.cards .card-link:nth-child(-n+3) {
-  align-self: stretch;
-}
-
-.card-link:hover {
-  transform: scale(1.045);
-  z-index: 5;
-  position: relative;
-}
+/* ==================== Card component (used everywhere: home, verkefni, starfsemi, um-okkur) ==================== */
 
 .card {
-  border-radius: 28px;
-  padding: 18px 18px 20px;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  border-radius: 24px;
+  padding: 14px;
+  transition: transform .28s ease;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+  min-height: 0;
 }
 
-.card .photo-frame {
-  border-radius: 18px;
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card-photo {
   overflow: hidden;
-  aspect-ratio: 3 / 4;
-  margin-bottom: 18px;
+  border-radius: 14px;
+  min-width: 0;
+  min-height: 0;
 }
 
-.card .photo-frame img {
+.card-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -418,29 +398,124 @@ body.nav-locked {
   mix-blend-mode: multiply;
 }
 
-.card p.lorem {
-  font-weight: 300;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: var(--cream);
-  opacity: 0.92;
-  margin: 0 0 10px;
+.card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.card h3 {
+.card-title {
   font-family: Inter, sans-serif;
   font-weight: 900;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   line-height: 1.15;
-  margin: 0;
+  margin: 0 0 10px;
   color: var(--cream);
 }
+
+.card-desc {
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--cream);
+  opacity: 0.9;
+  margin: 0;
+}
+
+.card .hl {
+  color: var(--lime);
+}
+
+/* ---- Orientation: stack (photo on top, text below) ---- */
+
+.card--stack {
+  flex-direction: column;
+  height: 100%;
+}
+
+.card--stack .card-photo {
+  aspect-ratio: 3 / 4;
+  margin-bottom: 14px;
+}
+
+.card--stack .card-text {
+  flex: 1;
+  padding: 0 4px 4px;
+}
+
+.card--stack.card--reverse {
+  flex-direction: column-reverse;
+}
+
+.card--stack.card--reverse .card-photo {
+  margin: 14px 0 0;
+}
+
+/* ---- Orientation: row (text | photo side by side) ---- */
+
+.card--row {
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 250px;
+}
+
+.card--row .card-text {
+  flex: 0 0 34%;
+  padding: 18px 24px;
+  justify-content: flex-start;
+}
+
+.card--row .card-photo {
+  flex: 1;
+}
+
+.card--row.card--reverse {
+  flex-direction: row-reverse;
+}
+
+/* ---- Size modifiers ---- */
+
+.card--compact .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+
+.card--compact .card-desc {
+  font-size: 0.85rem;
+}
+
+.card--compact.card--stack .card-text {
+  padding: 12px 4px 4px;
+}
+
+.card--compact.card--row .card-text {
+  padding: 14px 20px;
+}
+
+.card--xl .card-title {
+  font-size: 3.2rem;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+
+.card--xl .card-desc {
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
+/* ---- Alignment ---- */
+
+.card--align-right .card-text {
+  text-align: right;
+}
+
+/* ---- Color variants (background + photo duotone tint) ---- */
 
 .card--olive {
   background: var(--olive);
 }
 
-.card--olive .photo-frame {
+.card--olive .card-photo {
   background: var(--olive-tint);
 }
 
@@ -448,42 +523,63 @@ body.nav-locked {
   background: var(--teal);
 }
 
-.card--teal h3.head {
-  font-family: Inter, sans-serif;
-  font-size: 1.7rem;
-  line-height: 1.2;
-  font-weight: 900;
-  margin: 0 0 14px;
-}
-
-.card--teal h3.head .hl {
-  color: var(--lime);
-}
-
-.card--teal p.lorem {
-  margin-bottom: 18px;
-}
-
-.card--teal .photo-frame {
+.card--teal .card-photo {
   background: var(--teal-tint);
-  flex: 1;
-  min-height: 0;
 }
 
 .card--plum {
   background: var(--plum);
 }
 
-.card--plum .photo-frame {
+.card--plum .card-photo {
   background: var(--plum-tint);
 }
 
-.card--plum p.lorem {
-  text-align: right;
+.card--slate {
+  background: var(--slate);
 }
 
-.card--plum h3 {
-  text-align: right;
+.card--slate .card-photo {
+  background: var(--slate-tint);
+}
+
+.card--maroon {
+  background: var(--maroon);
+}
+
+.card--maroon .card-photo {
+  background: var(--maroon-tint);
+}
+
+/* ---- Link wrapper (used whenever a card is clickable) ---- */
+
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  min-width: 0;
+}
+
+/* ---------- Home page card grid ---------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 64px 2vw;
+  margin-bottom: 80px;
+}
+
+.cards .card-link:nth-child(-n+3) {
+  align-self: stretch;
+}
+
+.cards .contact-block {
+  position: static;
+  top: auto;
+  right: auto;
+  margin-left: auto;
 }
 
 .card4-col {
@@ -494,7 +590,7 @@ body.nav-locked {
   margin-left: auto;
 }
 
-/* ---------- Horizontal list cards (verkefni / starfsemi) ---------- */
+/* ---------- List layout (starfsemi contact sidebar) ---------- */
 
 .list-layout {
   display: flex;
@@ -505,17 +601,6 @@ body.nav-locked {
 .list-cards-col {
   flex: 1;
   min-width: 0;
-}
-
-.list-cards-col .list-card .text h3 {
-  font-size: 3.2rem;
-  line-height: 1.05;
-  margin: 0 0 18px;
-}
-
-.list-cards-col .list-card .text p {
-  font-size: 1.3rem;
-  line-height: 1.5;
 }
 
 .list-layout .contact-block {
@@ -530,96 +615,8 @@ body.nav-locked {
   top: 28px;
 }
 
-.list-card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  transition: transform .28s ease;
-}
-
-.list-card-link:hover {
-  transform: scale(1.015);
-}
-
-.list-card {
-  display: flex;
-  align-items: stretch;
-  border-radius: 28px;
-  overflow: hidden;
+.list-cards-col .card--row {
   margin-bottom: 28px;
-  min-height: 250px;
-  padding: 14px;
-}
-
-.list-card .text {
-  flex: 0 0 34%;
-  padding: 32px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.list-card .text h3 {
-  font-family: Inter, sans-serif;
-  font-weight: 900;
-  font-size: 1.6rem;
-  line-height: 1.2;
-  margin: 0 0 12px;
-  color: var(--cream);
-}
-
-.list-card .text p {
-  font-weight: 300;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin: 0;
-  color: var(--cream);
-  opacity: 0.9;
-}
-
-.list-card .photo {
-  flex: 1;
-  overflow: hidden;
-  border-radius: 14px;
-}
-
-.list-card .photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.list-card--olive {
-  background: var(--olive);
-}
-
-.list-card--olive .photo img {
-  filter: sepia(0.3) hue-rotate(40deg) saturate(1.1);
-}
-
-.list-card--plum {
-  background: var(--plum);
-}
-
-.list-card--plum .photo img {
-  filter: grayscale(1) sepia(0.4) hue-rotate(250deg) saturate(2);
-}
-
-.list-card--teal {
-  background: var(--teal);
-}
-
-.list-card--teal .photo img {
-  filter: grayscale(1) contrast(1.05);
-}
-
-.list-card--maroon {
-  background: var(--maroon);
-}
-
-.list-card--maroon .photo img {
-  filter: grayscale(1) sepia(0.5) hue-rotate(320deg) saturate(2);
 }
 
 /* ---------- Verkefni project rows (mini-card + list-card, alternating) ---------- */
@@ -628,103 +625,46 @@ body.nav-locked {
   position: relative;
 }
 
+.project-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/*
 .project-row {
   display: flex;
   align-items: stretch;
   gap: 24px;
   margin-bottom: 28px;
   height: 360px;
+}*/
+
+.project-row {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 1.5rem;
 }
 
-.project-row .list-card-link {
+.project-row:nth-of-type(even) {
+  grid-template-columns: 1fr 4fr;
+}
+
+.project-row .card-link {
   flex: 1 1 auto;
   display: flex;
+  height: 360px;
 }
 
-.project-row--first .list-card-link {
-  max-width: calc(100% - 320px);
-}
-
-.project-row .list-card {
-  margin-bottom: 0;
-  flex: 1;
-}
-
-.project-row .list-card .text {
-  padding: 18px 24px;
-}
-
-.project-row .list-card .photo {
-  aspect-ratio: unset;
-  height: 100%;
-  border-radius: 14px;
-}
-
-.mini-card {
-  border-radius: 24px;
-  overflow: hidden;
-  padding: 14px;
-  flex: 0 0 360px;
-  width: 360px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  transition: transform .28s ease;
-}
-
-.mini-card:hover {
-  transform: scale(1.03);
-}
-
-.mini-card .mini-photo {
-  aspect-ratio: unset;
-  flex: 1;
-  overflow: hidden;
-  min-height: 0;
-  border-radius: 14px;
-}
-
-.mini-card .mini-photo img {
+.project-row .card--row {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(1) contrast(1.05);
-  mix-blend-mode: multiply;
 }
 
-.mini-card .mini-caption {
-  font-weight: 300;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  opacity: 0.85;
-  margin: 16px 0 6px;
+.project-list .card--compact .card-title {
+  font-size: 2rem;
 }
 
-.mini-card .mini-title {
-  font-family: Inter, sans-serif;
-  font-weight: 900;
-  font-size: 1.3rem;
-  line-height: 1.2;
-  margin: 0;
-}
-
-.mini-card--olive {
-  background: var(--olive);
-}
-
-.mini-card--teal {
-  background: var(--teal);
-}
-
-.mini-card--plum {
-  background: var(--plum);
-}
-
-.mini-card--maroon {
-  background: var(--maroon);
+.project-list .mini-link .card--compact .card-title {
+  font-size: 1.5rem;
 }
 
 .project-wrap .contact-block {
@@ -734,7 +674,7 @@ body.nav-locked {
 
 .lorem-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
   margin: 56px 0 60px;
 }
@@ -771,84 +711,10 @@ body.nav-locked {
 
 .founders {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2vw;
   margin-bottom: 80px;
   align-items: stretch;
-}
-
-.founder {
-  border-radius: 24px;
-  overflow: hidden;
-  padding: 14px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: transform .28s ease;
-}
-
-.founder .f-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 16px 18px 20px;
-}
-
-.founder:hover {
-  transform: scale(1.03);
-}
-
-.founder .f-photo {
-  aspect-ratio: 3/4;
-  overflow: hidden;
-  border-radius: 14px;
-}
-
-.founder .f-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(1) contrast(1.05);
-  mix-blend-mode: multiply;
-}
-
-.founder .f-role {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  font-weight: 300;
-  opacity: 0.85;
-  margin: 0 0 6px;
-}
-
-.founder .f-name {
-  font-family: Inter, sans-serif;
-  font-weight: 900;
-  font-size: 1.25rem;
-  line-height: 1.2;
-  margin: 0;
-}
-
-.founder--olive {
-  background: var(--olive);
-}
-
-.founder--slate {
-  background: var(--slate);
-}
-
-.founder--plum {
-  background: var(--plum);
-}
-
-.founder--maroon {
-  background: var(--maroon);
-}
-
-/* founder card with text-on-top layout */
-.founder--top .f-text {
-  order: -1;
 }
 
 /* ---------- Divider ---------- */
@@ -1113,27 +979,29 @@ footer {
     height: auto;
   }
 
-  .project-row--first .list-card-link {
+  .project-row--first .card-link {
     max-width: none;
   }
 
-  .mini-card {
+  .project-row .mini-link {
     flex: none;
     width: 100%;
+  }
+
+  .project-row .card--stack {
     height: auto;
   }
 
-  .mini-card .mini-photo {
+  .project-row .card--stack .card-photo {
     aspect-ratio: 16 / 9;
-    flex: none;
   }
 
-  .project-row .list-card-link {
+  .project-row .card-link {
     max-width: none;
     width: 100%;
   }
 
-  .project-row .list-card .photo {
+  .project-row .card--row .card-photo {
     height: auto;
     aspect-ratio: 4 / 3;
   }
@@ -1177,7 +1045,7 @@ footer {
     margin-bottom: 56px;
   }
 
-  .card-link:hover {
+  .card:hover {
     transform: scale(1.02);
   }
 
@@ -1185,15 +1053,15 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .list-card {
+  .list-cards-col .card--row {
     flex-direction: column;
   }
 
-  .list-card .text {
+  .list-cards-col .card--row .card-text {
     flex: none;
   }
 
-  .list-card .photo {
+  .list-cards-col .card--row .card-photo {
     height: 260px;
   }
 
@@ -1201,29 +1069,29 @@ footer {
     flex-direction: column;
   }
 
-  .mini-card {
+  .project-row .mini-link {
     width: 100%;
   }
 
-  .mini-card .mini-photo {
+  .project-row .card--stack .card-photo {
     aspect-ratio: 4 / 3;
   }
 
-  .project-row .list-card-link {
+  .project-row .card-link {
     max-width: none;
     width: 100%;
   }
 
-  .project-row .list-card {
+  .project-row .card--row {
     flex-direction: column;
     height: auto;
   }
 
-  .project-row .list-card .text {
+  .project-row .card--row .card-text {
     flex: none;
   }
 
-  .project-row .list-card .photo {
+  .project-row .card--row .card-photo {
     height: 220px;
     aspect-ratio: unset;
   }
