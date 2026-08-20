@@ -1088,11 +1088,12 @@ footer {
     height: 260px;
   }
 
-  .project-row {
-    flex-direction: column;
+  .project-row,
+  .project-row:nth-of-type(even) {
+    grid-template-columns: 1fr;
   }
 
-  .project-row .mini-link {
+  .project-row .mini-link .card {
     width: 100%;
   }
 
