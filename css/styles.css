@@ -398,18 +398,9 @@ body.nav-locked {
   mix-blend-mode: multiply;
 }
 
-.card-photo-color {
-  overflow: hidden;
-  border-radius: 14px;
-  min-width: 0;
-  min-height: 0;
-}
-
-.card-photo-color img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.card-photo.card-photo-color img {
+  filter: none;
+  mix-blend-mode: normal;
 }
 
 .card-text {
@@ -470,11 +461,6 @@ body.nav-locked {
   margin-bottom: 14px;
 }
 
-.card--stack .card-photo-color {
-  aspect-ratio: 3 / 4;
-  margin-bottom: 14px;
-}
-
 .card--stack .card-text {
   flex: 1;
   padding: 0 4px 4px;
@@ -485,10 +471,6 @@ body.nav-locked {
 }
 
 .card--stack.card--reverse .card-photo {
-  margin: 14px 0 0;
-}
-
-.card--stack.card--reverse .card-photo-color {
   margin: 14px 0 0;
 }
 
@@ -507,10 +489,6 @@ body.nav-locked {
 }
 
 .card--row .card-photo {
-  flex: 1;
-}
-
-.card--row .card-photo-color {
   flex: 1;
 }
 
@@ -1041,21 +1019,12 @@ footer {
     aspect-ratio: 16 / 9;
   }
 
-   .project-row .card--stack .card-photo-color {
-    aspect-ratio: 16 / 9;
-  }
-
   .project-row .card-link {
     max-width: none;
     width: 100%;
   }
 
   .project-row .card--row .card-photo {
-    height: auto;
-    aspect-ratio: 4 / 3;
-  }
-
-  .project-row .card--row .card-photo-color {
     height: auto;
     aspect-ratio: 4 / 3;
   }
@@ -1119,10 +1088,6 @@ footer {
     height: 260px;
   }
 
-.list-cards-col .card--row .card-photo-color {
-    height: 260px;
-  }
-
   .project-row {
     flex-direction: column;
   }
@@ -1132,10 +1097,6 @@ footer {
   }
 
   .project-row .card--stack .card-photo {
-    aspect-ratio: 4 / 3;
-  }
-
-    .project-row .card--stack .card-photo-color {
     aspect-ratio: 4 / 3;
   }
 
@@ -1154,11 +1115,6 @@ footer {
   }
 
   .project-row .card--row .card-photo {
-    height: 220px;
-    aspect-ratio: unset;
-  }
-
-  .project-row .card--row .card-photo-color {
     height: 220px;
     aspect-ratio: unset;
   }
