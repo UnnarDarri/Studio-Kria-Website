@@ -1,0 +1,86 @@
+
+<link rel="stylesheet" href="/css/grain.css">
+<div class="film-grain" aria-hidden="true"></div>
+
+<script>
+(() => {
+  const overlay = document.querySelector(".film-grain");
+  if (!overlay) return;
+  
+  
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight / 2;
+  let currentX = targetX;
+  let currentY = targetY;
+
+  window.addEventListener("pointermove", (event) => {
+    targetX = event.clientX;
+    targetY = event.clientY + window.scrollY;
+  });
+
+  function moveGlow() {
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
+
+    document.body.style.setProperty("--glow-x", `${currentX}px`);
+    document.body.style.setProperty("--glow-y", `${currentY}px`);
+
+    requestAnimationFrame(moveGlow);
+  }
+
+  moveGlow();
+
+
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d", { alpha: true });
+  if (!ctx) return;
+
+  canvas.setAttribute("aria-hidden", "true");
+  Object.assign(canvas.style, {
+    position: "absolute",
+    inset: "0",
+    width: "100%",
+    height: "100%",
+    pointerEvents: "none"
+  });
+  overlay.appendChild(canvas);
+
+  const scale = 0.9;
+  const frameInterval = 18;
+  let lastFrame = 0;
+  let width = 0;
+  let height = 0;
+
+  function resize() {
+    width = Math.max(1, Math.ceil(overlay.clientWidth * scale));
+    height = Math.max(1, Math.ceil(overlay.clientHeight * scale));
+    canvas.width = width;
+    canvas.height = height;
+  }
+
+  function draw(time) {
+    requestAnimationFrame(draw);
+    if (time - lastFrame < frameInterval) return;
+    lastFrame = time;
+
+    const image = ctx.createImageData(width, height);
+    const pixels = image.data;
+
+    for (let i = 0; i < pixels.length; i += 4) {
+      const value = Math.random() < 0.5 ? 0 : 255;
+      const alpha = Math.random() * 12;
+      pixels[i] = value;
+      pixels[i + 1] = value;
+      pixels[i + 2] = value;
+      pixels[i + 3] = alpha;
+    }
+
+    ctx.putImageData(image, 0, 0);
+  }
+
+  new ResizeObserver(resize).observe(overlay);
+  resize();
+  requestAnimationFrame(draw);
+})();
+</script>
+
