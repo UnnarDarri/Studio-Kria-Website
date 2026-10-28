@@ -1,0 +1,255 @@
+
+@font-face {
+  font-family: "Kria Gill Sans";
+  src: url("../fonts/gill-sans-mt-condensed-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Page layout */
+body:has(.kria-home-preview) {
+  padding-top: 24px;
+  min-height: 100vh;
+  color: #f3ede1;
+}
+
+body:has(.kria-home-preview) .wrap > header,
+body:has(.kria-home-preview) .wrap > .divider,
+body:has(.kria-home-preview) .wrap > footer {
+  display: none;
+}
+
+body:has(.kria-home-preview) .wrap {
+  width: 100%;
+  max-width: none;
+}
+
+.kria-home-preview {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 4vw 4rem;
+  box-sizing: border-box;
+}
+
+.kria-artboard {
+  width: 100%;
+  position: relative;
+  container-type: inline-size;
+}
+
+.kria-artboard svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Original SVG artwork glow */
+.kria-home-preview svg path {
+  filter:
+    drop-shadow(0 0 4px rgba(255, 245, 225, 0.5))
+    drop-shadow(0 0 14px rgba(235, 145, 95, 0.35))
+    drop-shadow(0 0 30px rgba(220, 115, 75, 0.22));
+}
+
+/* Original SVG interactive groups */
+#contact,
+#how-can-we-help,
+#about,
+#our-work,
+#bird {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 220ms ease, opacity 700ms ease, filter 700ms ease;
+  cursor: pointer;
+}
+
+#contact:hover,
+#how-can-we-help:hover,
+#about:hover,
+#our-work:hover,
+#bird:hover {
+  transform: scale(1.04);
+}
+
+#menu {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 200ms ease;
+  cursor: pointer;
+}
+
+#menu:hover {
+  transform: scale(1.08);
+}
+
+#line-one,
+#line-two {
+  transition: opacity 200ms ease;
+}
+
+.kria-artboard svg {
+  pointer-events: none;
+}
+
+/* Original SVG text turns white when visible */
+#contact,
+#how-can-we-help,
+#about,
+#our-work {
+  opacity: 0.35;
+  filter: brightness(1);
+}
+
+#contact.is-visible,
+#how-can-we-help.is-visible,
+#about.is-visible,
+#our-work.is-visible {
+  opacity: 1;
+  filter: brightness(0) invert(1);
+}
+
+/* HTML replacement lettering */
+
+.kria-html-text {
+  position: absolute;
+  display: block;
+  font-family: "Kria Gill Sans", sans-serif !important;
+  font-weight: 400;
+  font-style: normal;
+  color: #b0b0b0;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+
+  /* Keep centered and glowing all the time */
+  transform: translateX(-50%);
+ 
+  transition:
+    color 700ms ease,
+    text-shadow 300ms ease,
+    transform 300ms ease;
+}
+
+.kria-html-text.is-visible {
+  color: #ffffff;
+}
+
+.kria-html-text:hover {
+  color: #ffffff;
+  transform: translateX(-50%) scale(1.06);
+}
+
+.kria-html-text:focus-visible {
+  outline: 2px solid #ff6900;
+  outline-offset: 8px;
+}
+
+.kria-html-text span {
+  display: block;
+}
+
+
+/* Line breaks */
+.kria-html-text span {
+  display: block;
+}
+
+/* OKKAR VERK */
+.kria-our-work {
+  left: 50%;
+  top: 47.8%;
+  font-size: 40cqw;
+}
+
+.kria-our-work span {
+  display: block;
+}
+
+/* Hvernig getum við aðstoðað */
+.kria-help {
+  left: 50%;
+  top: 27.9%;
+  font-size: 35cqw;
+}
+
+.kria-help span {
+  display: block;
+}
+
+/* Um okkur */
+.kria-about {
+  left: 50%;
+  top: 63.5%;
+  font-size: 35cqw;
+}
+
+/* Hafðu samband */
+.kria-contact {
+  left: 50%;
+  top: 74.5%;
+  font-size: 35cqw;
+}
+
+.kria-contact span {
+  display: block;
+}
+
+/* Mobile spacing */
+@media (max-width: 600px) {
+  .kria-home-preview {
+    padding-right: 2vw;
+    padding-left: 2vw;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .kria-artboard *,
+  .kria-html-text {
+    transition: none !important;
+  }
+}
+
+/* Permanent glow on all HTML lettering */
+.kria-html-text,
+.kria-html-text.is-visible,
+.kria-html-text:hover {
+  text-shadow:
+    0 0 4px rgba(255, 245, 225, 0.5),
+    0 0 14px rgba(235, 145, 95, 0.35),
+    0 0 30px rgba(220, 115, 75, 0.22) !important;
+}
+
+/* Permanent glow on every HTML text link */
+.kria-artboard a.kria-html-text,
+.kria-artboard a.kria-html-text.is-visible,
+.kria-artboard a.kria-html-text:hover {
+  filter:
+    drop-shadow(0 0 4px rgba(255, 245, 225, 0.5))
+    drop-shadow(0 0 14px rgba(235, 145, 95, 0.35))
+    drop-shadow(0 0 30px rgba(220, 115, 75, 0.22)) !important;
+}
+/* Enlarge the burger menu's clickable area */
+.kria-artboard svg #menu {
+  pointer-events: bounding-box;
+  cursor: pointer;
+}
+
+.kria-artboard svg #menu * {
+  pointer-events: none;
+}
+/* Make the bird clickable */
+.kria-artboard svg #bird {
+  pointer-events: bounding-box;
+  cursor: pointer;
+}
+
+.kria-artboard svg #bird * {
+  pointer-events: none;
+}

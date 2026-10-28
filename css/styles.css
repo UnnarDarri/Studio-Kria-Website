@@ -1206,3 +1206,11 @@ footer {
       transparent 100%
     );
 }
+@font-face {
+  font-family: "Gill Sans MT Condensed";
+  src: url("/Studio-Kria-Website/fonts/gill-sans-mt-condensed-regular.woff2")
+       format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
